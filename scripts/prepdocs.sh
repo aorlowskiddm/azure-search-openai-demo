@@ -1,4 +1,6 @@
- #!/bin/sh
+ #!/bin/bash
+
+source ~/.bash_profile
 
 echo ""
 echo "Loading azd .env file from current environment"
