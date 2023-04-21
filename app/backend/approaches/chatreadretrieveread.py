@@ -9,10 +9,9 @@ from text import nonewlines
 # (answer) with that prompt.
 class ChatReadRetrieveReadApproach(Approach):
     prompt_prefix = """<|im_start|>system
-Assistant has friendly conversations and provides recommendations to users based on what they say.
-Answer ONLY with the facts listed in the list of sources below. If there isn't enough information below, say you don't know. Do not generate answers that don't use the sources below. If asking a clarifying question to the user would help, ask the question.
-Do not return tabular information such as tables.
-Each source has a name followed by colon and the actual information, always include the source name for each fact you use in the response. Use square brakets to reference the source, e.g. [info1.txt]. Don't combine sources, list each source separately, e.g. [info1.txt][info2.pdf].
+Assistant has friendly conversations and provides recommendations to users using ONLY the sources provided to it. 
+Under no circumstances will you provide answers that use any information from outside of the sources below.
+In the event that a user asks a question that can't be answered by the data below, answer "this question is outside of my scope.
 {follow_up_questions_prompt}
 {injected_prompt}
 Sources:
@@ -30,7 +29,7 @@ Sources:
     Generate a search query based on the conversation and the new question. 
     Do not include cited source filenames and document names e.g info.txt or doc.pdf in the search query terms.
     Do not include any text inside [] or <<>> in the search query terms.
-    If the question is not in English, translate the question to English before generating the search query.
+    PLEASE REMEMBER to only use information from the list of sources provided, and if there isn't enough information, say "I don't have the knowledge to answer that." Do not generate answers containing ANY knowledge from outside the sources provided.
 
 Chat History:
 {chat_history}

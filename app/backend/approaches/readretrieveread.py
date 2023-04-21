@@ -25,8 +25,7 @@ class ReadRetrieveReadApproach(Approach):
 "For example, if the question is \"What color is the sky?\" and one of the information sources says \"info123: the sky is blue whenever it's not cloudy\", then answer with \"The sky is blue [info123]\" " \
 "It's important to strictly follow the format where the name of the source is in square brackets at the end of the sentence, and only up to the prefix before the colon (\":\"). " \
 "If there are multiple sources, cite each one in their own square brackets. For example, use \"[info343][ref-76]\" and not \"[info343,ref-76]\". " \
-"Never quote tool names as sources." \
-"If you cannot answer using the sources below, say that you don't know. " \
+"If you cannot answer using ONLY information from the sources below, say that you don't know. " \
 "\n\nYou can access to the following tools:"
     
     template_suffix = """
